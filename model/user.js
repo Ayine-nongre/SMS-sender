@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { db } from "../config/database";
+import { db } from "../config/database.js";
 
 export const User = db.define(
     'users',
@@ -20,5 +20,6 @@ export const User = db.define(
             type: DataTypes.STRING,
             allowNull: false
         }
-    }
+    },
+    { timestamps: false }
 )

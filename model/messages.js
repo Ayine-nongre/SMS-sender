@@ -32,7 +32,8 @@ const Message = db.define(
                 key: 'id'
             }
         }
-    }
+    },
+    { timestamps: false }
 )
 
 Message.belongsTo(User, { foreignKey: 'sender_id' })
