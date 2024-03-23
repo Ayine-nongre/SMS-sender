@@ -1,0 +1,90 @@
+body {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   background-color: #F9F9F9;
+}
+
+.options {
+    border: 1px solid black;
+    width: 30%;
+    height: 13em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 20px;
+    position: relative;
+    top: 180px;
+}
+
+
+#form{
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    width: 40%;
+    height: 34em;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top: 8%;
+}
+
+.input-div {
+    width: 90%;
+}
+
+.input-div > p{
+    margin-bottom: 0.2em;
+}
+
+#recipients{
+    width: 95%;
+    margin-bottom: 0.5em;
+    border-radius: 10px;
+    height: 2.5em;
+    border: 1px solid rgb(227, 227, 227);
+    padding: 4px;
+}
+
+#recipients[type=text]:focus{
+    border: 1px solid rgb(30, 30, 222);
+}
+
+#message{
+    border-radius: 10px;
+    border: 1px solid rgb(227, 227, 227);
+    padding: 10px;
+}
+
+button {
+    height: 3em;
+    width: 12em;
+    background-color: rgb(72, 72, 255);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    position: relative;
+    left: 150px;
+    margin-top: 0.4em;
+}
+
+#blinds {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 66em;
+    background-color: black;
+    opacity: 0.6;
+}
+
+img {
+    width: 4%;
+    position: absolute;
+    right: 1em;
+    top: 1.3em;
+}

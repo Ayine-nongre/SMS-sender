@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/history.css">
+    <title>Ronald SMS | History</title>
+</head>
+<body>
+    <div id="blinds"></div>
+    <div id="header">
+        <p>Created</p>
+        <p>Recipient</p>
+        <p>Message</p>
+        <p>Status</p>
+    </div>
+    <% for( let i = 0; i < data.length; i++ ) { %>
+        <div class="logs" onclick="expand(this)">
+            <p>12th August 2023</p>
+            <p class="number"><%=data[i].dataValues.recipient%></p>
+            <p class="msg"><%=data[i].dataValues.content%></p>
+            <% if (data[i].dataValues.status === "Success") { %>
+                <div class="success"><%=data[i].dataValues.status%></div>
+              <% } else { %>
+                <div class="failed"><%=data[i].dataValues.status%></div>
+            <% } %>
+        </div>
+    <% } %>
+    <form action="http://localhost:3000/api/bulksms" method="POST" id="form">
+        <img onclick="exit()" src="/images/cross-mark_8369334.png" alt="">
+        <div class="input-div">
+            <p>To</p>
+            <input id="recipients" name="receiver" type="text" placeholder="Enter recipients number (Separate multiple numbers with a comma)">
+        </div>
+        <div class="input-div">
+            <p>Message</p>
+            <textarea name="content" id="message" cols="55" rows="20" placeholder="Enter message"></textarea>
+        </div>
+        <button id="edit" >Edit Message</button>
+        <button type="submit">Send Message</button>
+    </form>
+    <script src="/script.js"></script>
+</body>
+</html>

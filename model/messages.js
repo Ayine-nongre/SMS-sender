@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
-import { db } from "../config/database";
-import { User } from "./user";
+import { db } from "../config/database.js";
+import { User } from "./user.js";
 
-const Message = db.define(
+export const Message = db.define(
     'messages',
     {
         id: {
@@ -21,21 +21,21 @@ const Message = db.define(
             allowNull: false
         },
         status: {
-            type: DataTypes.ENUM('Delivered', 'Failed'),
+            type: DataTypes.STRING,
             allowNull: false
         },
-        sender_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            references: {
-                model: User,
-                key: 'id'
-            }
-        }
+        // sender_id: {
+        //     type: DataTypes.UUID,
+        //     allowNull: false,
+        //     references: {
+        //         model: User,
+        //         key: 'id'
+        //     }
+        // }
     },
     { timestamps: false }
 )
 
-Message.belongsTo(User, { foreignKey: 'sender_id' })
-User.hasMany(Message, { foreignKey: 'sender_id' })
+// Message.belongsTo(User, { foreignKey: 'sender_id' })
+// User.hasMany(Message, { foreignKey: 'sender_id' })
 
