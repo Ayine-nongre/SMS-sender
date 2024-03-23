@@ -1,7 +1,7 @@
 ## SMS-sender
 An sms platform built using NodeJs, express and EJS that allows a user send bulk messages to a list of contacts, the user is also able to see a history of messages sent and send messages to a set of associated recipients using a template. 
 
-# GETTING STARTED
+# Getting started
 1. Clone the project
  
    ```
