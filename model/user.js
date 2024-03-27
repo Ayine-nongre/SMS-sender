@@ -11,6 +11,11 @@ export const User = db.define(
             unique: true,
             primaryKey: true
         },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -20,6 +25,5 @@ export const User = db.define(
             type: DataTypes.STRING,
             allowNull: false
         }
-    },
-    { timestamps: false }
+    }
 )

@@ -13,6 +13,13 @@ export const signupValidator = [
         if (user)  throw new Error("User with this email already exists")
         return email
     }),
+    body('username')
+    .notEmpty().withMessage("Please enter a username")
+    .custom(async (value, { req }) => {
+        const isUsed = await User.findOne({ where: { username: value }})
+        if (isUsed) throw new Error("User with username already exists")
+        return value
+    }),
     body('password')
     .notEmpty()
     .withMessage("Password cannot be empty")
@@ -31,9 +38,9 @@ export const signupValidator = [
 ]
 
 export const loginValidator = [
-    body('email')
+    body('username')
     .notEmpty()
-    .withMessage("Email cannot be empty"),
+    .withMessage(`Username cannot be empty`),
     body('password')
     .notEmpty()
     .withMessage("Password cannot be empty"),

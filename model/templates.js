@@ -2,29 +2,28 @@ import { DataTypes } from "sequelize";
 import { db } from "../config/database.js";
 import { User } from "./user.js";
 
-export const Message = db.define(
-    'messages',
-    {
+export const Template = db.define(
+    'templates',
+     {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
-            unique: true,
             primaryKey: true
         },
-        recipient: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
         content: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
-        status: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        sender_id: {
+        recipients: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        author_id: {
             type: DataTypes.UUID,
             allowNull: false,
             references: {
@@ -32,9 +31,8 @@ export const Message = db.define(
                 key: 'id'
             }
         }
-    }
+     }
 )
 
-Message.belongsTo(User, { foreignKey: 'sender_id' })
-User.hasMany(Message, { foreignKey: 'sender_id' })
-
+Template.belongsTo(User, { foreignKey: 'author_id' })
+User.hasMany(Template, { foreignKey: 'author_id' })

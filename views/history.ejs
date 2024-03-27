@@ -16,7 +16,7 @@
     </div>
     <% for( let i = 0; i < data.length; i++ ) { %>
         <div class="logs" onclick="expand(this)">
-            <p>12th August 2023</p>
+            <p><%=data[i].dataValues.createdAt%></p>
             <p class="number"><%=data[i].dataValues.recipient%></p>
             <p class="msg"><%=data[i].dataValues.content%></p>
             <% if (data[i].dataValues.status === "Success") { %>

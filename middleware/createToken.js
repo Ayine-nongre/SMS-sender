@@ -13,16 +13,9 @@ export const createToken = (user, res, statusCode) => {
     })
 
     if (statusCode === 200) {
-         res.status(statusCode).json({
-            status: "Success",
-            message: "Login successful"
-        })
+        res.redirect('/')
     } else {
-        res.status(statusCode).json({
-            status: "Success",
-            message: "Signup successful",
-            email: user.email
-        })
+        res.redirect('/')
     }
 }
 

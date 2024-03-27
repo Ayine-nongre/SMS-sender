@@ -23,7 +23,7 @@ export const bulkSMS = async (req, res) => {
                 recipient: response.Recipients[i].number,
                 content: content,
                 status: response.Recipients[i].status,
-                //sender_id: randomUUID()
+                sender_id: req.user.id
             })
         }
 
