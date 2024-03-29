@@ -27,6 +27,10 @@ app.get('/authenticate', (req, res) => {
     res.render('login')
 })
 
+app.get('/send', (req, res) => {
+    res.render('send')
+})
+
 app.get('/history', async (req, res) => {
     const message = await Message.findAll()
     res.render('history', { data: message })
