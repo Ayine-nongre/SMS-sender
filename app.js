@@ -6,6 +6,7 @@ import { smsRouter } from './router/smsRouter.js'
 import { Message } from './model/messages.js'
 import { templateRouter } from './router/templateRouter.js'
 import { Template } from './model/templates.js'
+import { verifyToken } from './middleware/createToken.js'
 
 const app = express()
 
@@ -27,17 +28,17 @@ app.get('/authenticate', (req, res) => {
     res.render('login')
 })
 
-app.get('/send', (req, res) => {
+app.get('/send', verifyToken, (req, res) => {
     res.render('send')
 })
 
-app.get('/history', async (req, res) => {
-    const message = await Message.findAll()
+app.get('/history', verifyToken, async (req, res) => {
+    const message = await Message.find({ where: { sender_id: req.user.id }})
     res.render('history', { data: message })
 })
 
-app.get('/templates', async (req, res) => {
-    const template = await Template.findAll()
+app.get('/templates', verifyToken, async (req, res) => {
+    const template = await Template.find({ where: { sender_id: req.user.id }})
     res.render('templates', { data: template })
 })
 

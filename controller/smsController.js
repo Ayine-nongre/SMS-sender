@@ -27,7 +27,7 @@ export const bulkSMS = async (req, res) => {
             })
         }
 
-        res.json({ status: "Success" })
+        res.redirect('/history')
     })
     .catch(err => {
         console.log(err)

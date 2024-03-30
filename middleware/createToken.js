@@ -13,9 +13,9 @@ export const createToken = (user, res, statusCode) => {
     })
 
     if (statusCode === 200) {
-        res.redirect('/')
+        res.redirect('/send')
     } else {
-        res.redirect('/')
+        res.redirect('/send')
     }
 }
 
@@ -25,10 +25,7 @@ export const verifyToken = (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.PRIVATEKEY, (err, acc) => {
         if (err) {
-            res.status(401).json({
-                status: "Failed",
-                message: "User is not logged in"
-            })
+            res.redirect('/authenticate')
         }
 
         req.user = acc;
