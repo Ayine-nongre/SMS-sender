@@ -33,12 +33,12 @@ app.get('/send', verifyToken, (req, res) => {
 })
 
 app.get('/history', verifyToken, async (req, res) => {
-    const message = await Message.find({ where: { sender_id: req.user.id }})
+    const message = await Message.findAll({ where: { sender_id: req.user.id }})
     res.render('history', { data: message })
 })
 
 app.get('/templates', verifyToken, async (req, res) => {
-    const template = await Template.find({ where: { sender_id: req.user.id }})
+    const template = await Template.findAll({ where: { author_id: req.user.id }})
     res.render('templates', { data: template })
 })
 
