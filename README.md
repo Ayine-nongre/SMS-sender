@@ -45,3 +45,6 @@ Before running the application you should have the following installed:
 1. <strong>Create Message Template</strong>: Visit the templates to create a message template. Provide a template name, message content, and mobile numbers (comma-separated, begin numbers with country code).
 2. <strong>View Message History</strong>: Navigate to the history page to view the history of sent messages. You can see details such as message content, mobile numbers, and sent timestamps. You can also resend message or edit before sending.
 3. <strong>Send Messages</strong>: Select a template from the templates page and click "Send" to send the message to the associated mobile numbers or generate a new message in the send sms page and click "Send" to send message.
+
+# ER DIAGRAM
+ ![ER Diagram](./SMS-sender.drawio.png)
